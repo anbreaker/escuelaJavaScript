@@ -97,9 +97,17 @@ ul:hover {
     width: 70%;
 }
 
+.categories__title {
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    padding-left: 30px;
+    width: 100%;
+}
+
 .carousel {
     width: 100%;
-    overflow: scroll;
+    /* overflow-y: scroll; */
     padding: 30px;
     position: relative;
 }
@@ -120,8 +128,10 @@ ul:hover {
     display: inline-block;
     cursor: pointer;
     transition: 450ms;
-    transform-origin: center;
     position: relative;
+    transition: 450ms all;
+    -webkit-transform-origin: center left;
+    transform-origin: center left;
 }
 
 .carousel-item:hover~.carousel-item {
@@ -144,16 +154,16 @@ ul:hover {
 }
 
 .carousel-item__details {
-    align-items: flex-start;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
     font-size: 10px;
-    opacity: 0;
+    align-items: flex-start;
     transition: 450ms opacity;
     padding: 10px;
-    position: absolute;
+    opacity: 0;
     top: 0;
     left: 0;
     right: 0;
@@ -336,7 +346,8 @@ ul:hover {
     width: 100%;
 }
 
-.footer a {
+.footer,
+.footer__carousel a {
     color: white;
     cursor: pointer;
     font-size: 16px;
@@ -344,7 +355,8 @@ ul:hover {
     text-decoration: none;
 }
 
-.footer a:hover {
+.footer,
+.footer__carousel a:hover {
     text-decoration: underline;
 }
 
@@ -354,16 +366,4 @@ ul:hover {
     align-items: center;
     height: 100px;
     width: 100%;
-}
-
-.footer__carousel a {
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    padding-left: 30px;
-    text-decoration: none;
-}
-
-.footer__carousel a:hover {
-    text-decoration: underline;
 }
