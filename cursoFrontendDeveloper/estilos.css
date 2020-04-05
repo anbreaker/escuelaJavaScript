@@ -1,12 +1,11 @@
 body {
     margin: 0px;
     font-family: "Muli", sans-serif;
-    background-color: #ab88ff;
+    background-color: #21C08B;
 }
 
 .header {
     align-items: center;
-    background-color: #ab88ff;
     color: white;
     display: flex;
     height: 100px;
@@ -257,7 +256,7 @@ ul:hover {
 }
 
 .input {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: transparent;
     border-left: 0px;
     border-top: 0px;
     border-right: 0px;
@@ -268,7 +267,47 @@ ul:hover {
     padding: 0px 20px;
     outline: none;
     height: 50px;
-    width: 70%;
+}
+
+.register {
+    background-image: linear-gradient(#21c08b, #AB88FF);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 30px;
+    min-height: calc(100vh - 200px);
+    /* El ancho será igual al tamaño de todo el height menos 200px (100px del header + 100px del footer) */
+}
+
+.register__container {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    border-radius: 40px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 600px;
+    padding: 60px 68px 40px;
+    width: 300px;
+}
+
+.register__container--form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register__container a {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.register__container a:hover {
+    text-decoration: underline;
 }
 
 ::placeholder {
@@ -309,16 +348,22 @@ ul:hover {
     text-decoration: underline;
 }
 
-@media only screen and (max-width: 600px) {
-    .login__container {
-        background-color: transparent;
-        border: none;
-        padding: 0px;
-        width: 100%;
-    }
+.footer__carousel {
+    background-color: #21c08b;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+}
 
-    .footer {
-        align-items: flex-start;
-        flex-direction: column;
-    }
+.footer__carousel a {
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding-left: 30px;
+    text-decoration: none;
+}
+
+.footer__carousel a:hover {
+    text-decoration: underline;
 }
