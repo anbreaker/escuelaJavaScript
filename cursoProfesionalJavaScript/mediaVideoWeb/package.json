@@ -1,0 +1,16 @@
+{
+    "name": "media-video-web",
+    "version": "1.0.0",
+    "description": "Proyecto del Curso Profesional de JavaScript de Platzi",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "live-server"
+    },
+    "keywords": [],
+    "author": "Francisco Javier Antúnez Durán aka anbreaker <antunez19@gmail.com>",
+    "license": "ISC",
+    "devDependencies": {
+        "live-server": "^1.2.1"
+    }
+}
