@@ -39,8 +39,21 @@
             person.saludar();
 
             // this cuando sacamos a una funcion de un objeto
-            const accion = person.saludar();
+            const accion = person.saludar;
             accion();
+
+            // this en el contexto de una "clase"
+            function Person(name) {
+                // this = {} Inicia de esta forma.
+                this.name = name;
+            }
+
+            Person.prototype.saludar = function () {
+                console.log(`Me llamo ${this.name} (thisClass)`);
+            };
+
+            const jessica = new Person('Jéssica');
+            jessica.saludar();
         </script>
     </body>
 </html>
