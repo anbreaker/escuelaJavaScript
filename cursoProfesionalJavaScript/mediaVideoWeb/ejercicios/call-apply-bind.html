@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>call-apply-bind</title>
+    </head>
+    <body>
+        <a href="/ejercicios/">Ir Atrás</a>
+        <p><em>Abre la consola</em></p>
+        <h2>call-apply-bind</h2>
+        <ul>
+            <li><button class="call-to-action">Aprender</button></li>
+            <li><button class="call-to-action">Aprender Más</button></li>
+            <li><button class="call-to-action">Nunca pares de aprender</button></li>
+        </ul>
+
+        <script>
+            // Establecer 'this' usadando 'call'
+            function saludar() {
+                console.log(`Hola soy ${this.name} ${this.apellido}`);
+            }
+
+            const anbreaker = {
+                name: 'Fjavier',
+                apellido: 'Antúnez Durán',
+            };
+
+            saludar.call(anbreaker);
+
+            // Establece 'this' usando 'call' pasando argumentos a la funcion
+            function caminar(metros, direccion) {
+                console.log(`${this.name} camina ${metros} metros hacia el ${direccion}`);
+            }
+
+            caminar.call(anbreaker, 400, 'norte');
+
+            // Establece 'this' usando 'aply' pasando argumentos a la funcion
+            const valores = [800, 'sur'];
+            caminar.apply(anbreaker, valores);
+
+            // call - le pasamos los argumentos  apply - recibe un array de argumentos
+
+            // Establecer 'this' en una nueva funcion usando 'bind'
+            const javier = {name: 'Javier', apellido: 'Antúnez'};
+            const javierSaldua = saludar.bind(javier);
+            javierSaldua();
+
+            const javierCamina = caminar.bind(javier);
+            javierCamina(1000, 'este');
+
+            const jessica = {name: 'Jéssica', apellido: 'Pedro'};
+            const jessicaCamina = caminar.bind(jessica, 2000, 'oeste');
+            jessicaCamina();
+
+            const javierCamina2 = caminar.bind(javier, 2250);
+            javierCamina2('sur-oeste');
+
+            // Cuando es util usar uno de estos metodos
+            const buttons = document.getElementsByClassName('call-to-action');
+            // buttons.forEach((button) => {
+            //     button.onclick = () => alert('Nunca pares de aprender');
+            // });
+            // Nos devuelve Uncaught TypeError: buttons.forEach is not a function
+            // Podemos arreglarlo con el length de button de la siguiente forma:
+
+            // NodeList
+            Array.prototype.forEach.call(buttons, (button) => {
+                button.onclick = () => alert('Nunca pares de aprender');
+            });
+        </script>
+    </body>
+</html>
