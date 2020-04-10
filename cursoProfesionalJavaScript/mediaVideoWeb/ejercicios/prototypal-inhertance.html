@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>prototypal-inhertance</title>
+    </head>
+    <body>
+        <a href="/ejercicios/">Ir Atrás</a>
+        <p><em>Abre la consola</em></p>
+
+        <h1>
+            <code>SomeObject.prototype</code> es un objeto donde definimos el prototipo de
+            las instancias de <code>SomeObject</code>. Es decir, las instancias de
+            <code>SomeObject</code> van a "heredar" de <code>SomeObject.prototype</code>.
+            <br />
+            <br />
+            <code>SomeObject.[[Prototype]]</code> es el prototipo de
+            <code>SomeObject</code>. Es decir, <code>SomeObject</code> "hereda" de
+            <code>SomeObject.prototype</code>.
+        </h1>
+
+        <script>
+            // Global Scope
+            function Hero(name) {
+                this.name = name;
+            }
+
+            Hero.prototype.saludar = function () {
+                console.log(`Hola soy ${this.name}`);
+            };
+
+            const zelda = new Hero('Zelda');
+
+            // Propiedades de la instancia
+            console.log(`Name: ${zelda.name}`);
+            // Propiedades de la 'clase'
+            console.log(`Saludar: ${zelda.saludar}`);
+            // Propiedades heredadas, ej: 'toString'
+            console.log(`Saludar: ${zelda.toString}`);
+            // hasOwnProperty (de dónde sale toString o esto?)
+            console.log('zelda.hasOwnProperty("name"):', zelda.hasOwnProperty('name'));
+            console.log(
+                'zelda.hasOwnProperty("saludar"):',
+                zelda.hasOwnProperty('saludar')
+            );
+            const PrototypeOfZelda = Object.getPrototypeOf(zelda);
+            PrototypeOfZelda === Hero.prototype; // true
+            Hero.prototype.figth = function () {
+                console.log('Figth!');
+            };
+            zelda.figth();
+            zelda.hasOwnProperty('figth'); // false
+        </script>
+    </body>
+</html>
