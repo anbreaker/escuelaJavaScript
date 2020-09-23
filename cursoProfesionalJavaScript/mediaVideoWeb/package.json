@@ -18,5 +18,8 @@
   "browserslist": [
     "Firefox ESR",
     "last 1 Chrome version"
-  ]
+  ],
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
 }
