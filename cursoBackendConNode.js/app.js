@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const {config} = require('./config/config');
+const {logErrors, errorHandler} = require('./utils/middleware/errorHandler.js');
 
 // Initializations
 const app = express();
@@ -24,6 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // API's Routes './routes/api...';
 app.use('/api/movies', require('./routes/movies'));
+
+// Middlewares Errors
+app.use(logErrors);
+app.use(errorHandler);
 
 // 404 Handler Error
 app.use((req, res, next) => {
